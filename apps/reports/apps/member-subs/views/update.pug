@@ -1,0 +1,20 @@
+extends /src/views/base.pug
+
+block prepend title
+	- title = 'Profile'
+	- page = 'profile'
+
+block contents
+	.row
+		.col-md-3
+			include partials/sidebar.pug
+		.col-md-9
+			+page_header( title )
+			form( method="post" ).form-horizontal
+				+csrf
+				+input( 'email', 'Email', 'email', { value: member.email, required: true, helpblock: "This will change the users login details.", right: 4 } )
+				hr
+				+input( 'text', 'First Name', 'firstname', { value: member.firstname, required: true, right: 4 } )
+				+input( 'text', 'Last Name', 'lastname', { value: member.lastname, required: true, right: 4 } )
+				+input( 'textarea', 'Address', 'address', { value: member.address, required: true, right: 4 } )
+				+form_button( 'Update', 'primary' )

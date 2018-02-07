@@ -1,0 +1,9 @@
+{
+	"title": "Member Subs",
+	"path": "member-subs",
+	"permissions": [
+		"superadmin", "admin"
+	],
+	"menu": "reports",
+	"priority": 6
+}

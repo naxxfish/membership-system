@@ -1,0 +1,15 @@
++page_header( 'Security' )
+dl.dl-horizontal
+	dt Tag
+	dd #{ member.tag.id ? member.tag.id : '–' }
+	if access( 'superadmin' )
+		if member.activation_code
+			dt Activation Code
+			dd=member.activation_code
+		if member.password.reset_code
+			dt Password Reset Code
+			dd=member.password.reset_code
+		dt Password Tries
+		dd #{ member.password.tries } #{ member.password.tries >= password_tries ? ' – Locked Out' : '' }
+		dt 2FA
+		dd #{ member.otp.activated ? 'Enabled' : 'Disabled' }
